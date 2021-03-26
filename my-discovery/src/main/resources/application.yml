@@ -1,0 +1,20 @@
+server:
+  port: 8100
+spring:
+  application:
+    name: my-discovery
+eureka:
+  client:
+    ###因为自己是注册中心，不需要去检索服务信息
+    fetch-registry: false
+    #由于该应用为注册中心,所以设置为false,代表不向注册中心注册自己
+    register-with-eureka: false
+    ##注册地址
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  instance:
+    ###注册中心ip地址 127.0.0.1 或者localhost
+    hostname: 127.0.0.1
+  server:
+    ### 关闭自我保护模式
+    enable-self-preservation: false

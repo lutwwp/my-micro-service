@@ -1,0 +1,38 @@
+server:
+  port: 8200
+
+####服务网关名称
+spring:
+  application:
+    name: my-gateway
+  cloud:
+    gateway:
+      # 此处配置表示开启自动映射Eureka下发的路由
+      discovery:
+        locator:
+          # 开启从注册中心动态创建路由的功能，利用微服务名称进行路由
+          enabled: true
+          lowerCaseServiceId: true
+      ###路由策略
+      routes:
+        ###路由id
+#        - id: mayikt
+#          ####转发http://www.mayikt.com/
+#          uri: http://www.mayikt.com/
+#          ###匹配规则
+#          predicates:
+#            - Path=/mayikt/**
+#            ###浏览器请求127.0.0.1/mayikt 会转发到http://www.mayikt.com/
+#        - id: cq
+#          uri: http://127.0.0.1:8060
+#          ###匹配规则
+#          predicates:
+#            - Path=/user/**
+#            ###浏览器请求127.0.0.1/user/lo 会转发到http://127.0.0.1:8060/user/lo
+eureka:
+  client:
+    # Eureka Server地址
+    service-url:
+      defaultZone: http://localhost:8100/eureka/
+  instance:
+    prefer-ip-address: true

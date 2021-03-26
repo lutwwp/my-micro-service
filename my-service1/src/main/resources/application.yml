@@ -1,0 +1,24 @@
+server:
+  port: 8500
+spring:
+  application:
+    name: my-service1
+eureka:
+  client:
+    # Eureka Serverµÿ÷∑
+    service-url:
+      defaultZone: http://localhost:8100/eureka/
+  instance:
+    prefer-ip-address: true
+
+auth-server: http://localhost:8400
+security:
+  oauth2:
+    client:
+      client-id: my-service1
+      client-secret: 123456
+      user-authorization-uri: ${auth-server}/oauth/authorize
+      access-token-uri: ${auth-server}/oauth/token
+    resource:
+      jwt:
+        key-uri: ${auth-server}/oauth/token_key

@@ -1,0 +1,18 @@
+server:
+  port: 8400
+spring:
+  application:
+    name: my-authentication
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 123456
+    url: jdbc:mysql://localhost:3306/myauthorization?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    username: root
+
+eureka:
+  client:
+    # Eureka Serverµÿ÷∑
+    service-url:
+      defaultZone: http://localhost:8100/eureka/
+  instance:
+    prefer-ip-address: true
